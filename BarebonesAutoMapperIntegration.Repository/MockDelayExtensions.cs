@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BarebonesAutoMapperIntegration.Repository
 {
+    // Simulate delays in async process
     public static class MockDelayExtensions
     {
         private const int Delay = 1000;
@@ -24,6 +26,12 @@ namespace BarebonesAutoMapperIntegration.Repository
         {
             await Task.Delay(Delay);
             return enumerable.First();
+        }
+        
+        public static async Task<T> SingleOrDefaultAsync<T>(this IQueryable<T> enumerable, Func<T, bool> condition = null)
+        {
+            await Task.Delay(Delay);
+            return condition == null ? enumerable.SingleOrDefault() : enumerable.SingleOrDefault(condition);
         }
     }
 }

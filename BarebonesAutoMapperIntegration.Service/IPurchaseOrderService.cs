@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using BarebonesAutoMapperIntegration.ApiModels;
 
 namespace BarebonesAutoMapperIntegration.Service
@@ -10,6 +11,8 @@ namespace BarebonesAutoMapperIntegration.Service
 
         PurchaseOrder Get(int id);
 
-        IEnumerable<PurchaseOrder> GetList(int count = 25);
+        Task<PurchaseOrder> GetAsync(int id);
+
+        Task<IEnumerable<PurchaseOrder>> GetListAsync(int count = 25);
     }
 }

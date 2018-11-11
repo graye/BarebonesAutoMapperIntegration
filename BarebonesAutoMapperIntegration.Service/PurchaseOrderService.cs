@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using AutoMapper;
 using BarebonesAutoMapperIntegration.ApiModels;
 using BarebonesAutoMapperIntegration.Repository;
@@ -25,12 +26,17 @@ namespace BarebonesAutoMapperIntegration.Service
 
         public PurchaseOrder Get(int id)
         {
-            throw new System.NotImplementedException();
+            return Mapper.Map<PurchaseOrder>(_repo.AsQueryable().SingleOrDefault(po => po.Id == id));
         }
 
-        public IEnumerable<PurchaseOrder> GetList(int count = 25)
+        public async Task<PurchaseOrder> GetAsync(int id)
         {
-            return Mapper.Map<IEnumerable<PurchaseOrder>>(_repo.AsQueryable().Take(count));
+            return Mapper.Map<PurchaseOrder>(await _repo.AsQueryable().SingleOrDefaultAsync(po => po.Id == id));
+        }
+
+        public async Task<IEnumerable<PurchaseOrder>> GetListAsync(int count = 25)
+        {
+            return Mapper.Map<IEnumerable<PurchaseOrder>>(await _repo.AsQueryable().Take(count).ToListAsync());
         }
     }
 }

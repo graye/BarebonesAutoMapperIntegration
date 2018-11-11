@@ -14,7 +14,7 @@ namespace BarebonesAutoMapperIntegration.Service.Tests
         private static IConfigurationProvider MapperConfig { get; } = Service.MapperConfig.Default;
 
         private static IMapper GetMapper() => MapperConfig.CreateMapper();
-
+        
         [Fact]
         public void Mapper_IncludesPurchaseOrder()
         {
