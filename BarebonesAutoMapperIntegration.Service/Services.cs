@@ -1,3 +1,4 @@
+using BarebonesAutoMapperIntegration.Service.Contracts;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BarebonesAutoMapperIntegration.Service

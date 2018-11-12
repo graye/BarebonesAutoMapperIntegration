@@ -1,6 +1,7 @@
 using AutoMapper;
 using BarebonesAutoMapperIntegration.ApiModels;
 using BarebonesAutoMapperIntegration.Repository;
+using BarebonesAutoMapperIntegration.Repository.Entities;
 
 namespace BarebonesAutoMapperIntegration.Service
 {

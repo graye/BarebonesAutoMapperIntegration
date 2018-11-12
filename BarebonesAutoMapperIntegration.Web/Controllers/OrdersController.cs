@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using BarebonesAutoMapperIntegration.ApiModels;
 using BarebonesAutoMapperIntegration.Service;
+using BarebonesAutoMapperIntegration.Service.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BarebonesAutoMapperIntegration.Web.Controllers
@@ -25,9 +26,9 @@ namespace BarebonesAutoMapperIntegration.Web.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<Order> Get(int id)
         {
-            return "value";
+            return await _orderService.GetAsync(id);
         }
 
         // POST api/values

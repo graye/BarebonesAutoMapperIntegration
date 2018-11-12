@@ -1,4 +1,4 @@
-namespace BarebonesAutoMapperIntegration.Repository
+namespace BarebonesAutoMapperIntegration.Repository.Entities
 {
     public class OrderItemEntity
     {

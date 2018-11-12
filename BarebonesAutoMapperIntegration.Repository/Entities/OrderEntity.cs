@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace BarebonesAutoMapperIntegration.Repository
+namespace BarebonesAutoMapperIntegration.Repository.Entities
 {
     public class OrderEntity
     {
