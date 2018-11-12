@@ -1,11 +1,9 @@
-﻿using System;
-
 namespace BarebonesAutoMapperIntegration.ApiModels
 {
-    public class PurchaseOrder
+    public class OrderItem
     {
         public int Id { get; set; }
         
-        public string Author { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -1,17 +1,26 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using BarebonesAutoMapperIntegration.ApiModels;
+using BarebonesAutoMapperIntegration.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BarebonesAutoMapperIntegration.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class OrdersController : ControllerBase
     {
+        private readonly IOrderService _orderService;
+
+        public OrdersController(IOrderService orderService) =>
+            _orderService = orderService;
+        
+        
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<IEnumerable<Order>> Get()
         {
-            return new string[] {"value1", "value2"};
+            return await _orderService.GetListAsync();
         }
 
         // GET api/values/5

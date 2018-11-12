@@ -9,40 +9,55 @@ using Xunit;
 
 namespace BarebonesAutoMapperIntegration.Service.Tests
 {
-    public class POServiceTests
+    public class OrderMappingTests
     {
         private static IConfigurationProvider MapperConfig { get; } = Service.MapperConfig.Default;
 
         private static IMapper GetMapper() => MapperConfig.CreateMapper();
         
         [Fact]
-        public void Mapper_IncludesPurchaseOrder()
+        public void Mapper_IncludesOrder()
         {
-            var entity = new PurchaseOrderEntity
+            var entity = new OrderEntity
             {
                 Id = 3,
                 AuthorFirstName = "Gail",
                 AuthorSurname = "Wallingo"
             };
 
-            var apiModel = GetMapper().Map<PurchaseOrder>(entity);
+            var apiModel = GetMapper().Map<Order>(entity);
 
             Assert.Equal(entity.Id, apiModel.Id);
             Assert.Equal($"{entity.AuthorFirstName} {entity.AuthorSurname}", apiModel.Author);
         }
 
         [Fact]
+        public void Mapper_IncludesOrderItem()
+        {
+            var entity = new OrderItemEntity
+            {
+                Id = 12,
+                Name = "Doge"
+            };
+
+            var apiModel = GetMapper().Map<OrderItem>(entity);
+            
+            Assert.Equal(entity.Id, apiModel.Id);
+            Assert.Equal(entity.Name, apiModel.Name);
+        }
+
+        [Fact]
         public void Mapper_MapsEnumerables()
         {
-            var entities = new List<PurchaseOrderEntity>
+            var entities = new List<OrderEntity>
             {
-                new PurchaseOrderEntity
+                new OrderEntity
                 {
                     Id = 3,
                     AuthorFirstName = "Gail",
                     AuthorSurname = "Wallingo"
                 },
-                new PurchaseOrderEntity
+                new OrderEntity
                 {
                     Id = 2,
                     AuthorFirstName = "Jane",
@@ -50,7 +65,7 @@ namespace BarebonesAutoMapperIntegration.Service.Tests
                 },
             };
             
-            var modelList = GetMapper().Map<IEnumerable<PurchaseOrder>>(entities).ToArray();
+            var modelList = GetMapper().Map<IEnumerable<Order>>(entities).ToArray();
             
             Assert.Equal(entities.Count, modelList.Length);
 

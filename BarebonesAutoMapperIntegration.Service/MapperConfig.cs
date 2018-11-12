@@ -12,7 +12,7 @@ namespace BarebonesAutoMapperIntegration.Service
         private static readonly Lazy<IConfigurationProvider> DefaultLazy = new Lazy<IConfigurationProvider>(() =>
             new MapperConfiguration(cfg =>
             {
-                // Auto discover all mapping profiles
+                // Auto discover all mapping profiles within current assembly
                 cfg.AddProfiles(typeof(MapperConfig));
                 
                 // Add custom mappings here too

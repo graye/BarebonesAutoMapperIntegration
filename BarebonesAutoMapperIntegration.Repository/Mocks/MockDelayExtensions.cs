@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BarebonesAutoMapperIntegration.Repository
+namespace BarebonesAutoMapperIntegration.Repository.Mocks
 {
     // Simulate delays in async process
     public static class MockDelayExtensions
