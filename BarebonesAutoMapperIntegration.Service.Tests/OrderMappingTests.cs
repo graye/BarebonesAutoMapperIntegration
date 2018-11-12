@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using BarebonesAutoMapperIntegration.ApiModels;
 using BarebonesAutoMapperIntegration.Repository;
 using BarebonesAutoMapperIntegration.Repository.Entities;
+using BarebonesAutoMapperIntegration.Service.Contracts;
 using Xunit;
 
 namespace BarebonesAutoMapperIntegration.Service.Tests

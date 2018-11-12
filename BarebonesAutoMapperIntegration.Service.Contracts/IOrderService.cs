@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BarebonesAutoMapperIntegration.ApiModels;
 
 namespace BarebonesAutoMapperIntegration.Service.Contracts
 {

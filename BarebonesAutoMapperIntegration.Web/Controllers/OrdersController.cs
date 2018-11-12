@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using BarebonesAutoMapperIntegration.ApiModels;
 using BarebonesAutoMapperIntegration.Service;
 using BarebonesAutoMapperIntegration.Service.Contracts;
 using Microsoft.AspNetCore.Mvc;

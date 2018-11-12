@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BarebonesAutoMapperIntegration.ApiModels
+namespace BarebonesAutoMapperIntegration.Service.Contracts
 {
     public class Order
     {

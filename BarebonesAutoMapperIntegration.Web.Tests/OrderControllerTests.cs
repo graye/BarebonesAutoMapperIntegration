@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BarebonesAutoMapperIntegration.ApiModels;
 using BarebonesAutoMapperIntegration.Service.Contracts;
 using BarebonesAutoMapperIntegration.Web.Controllers;
 using NSubstitute;

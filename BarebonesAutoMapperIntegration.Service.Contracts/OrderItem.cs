@@ -1,4 +1,4 @@
-namespace BarebonesAutoMapperIntegration.ApiModels
+namespace BarebonesAutoMapperIntegration.Service.Contracts
 {
     public class OrderItem
     {

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using BarebonesAutoMapperIntegration.ApiModels;
 using BarebonesAutoMapperIntegration.Repository;
 using BarebonesAutoMapperIntegration.Repository.Entities;
 using BarebonesAutoMapperIntegration.Repository.Mocks;
