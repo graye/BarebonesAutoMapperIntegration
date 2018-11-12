@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\BarebonesAutoMapperIntegration.Service.Contracts\BarebonesAutoMapperIntegration.Service.Contracts.csproj" />
       <ProjectReference Include="..\BarebonesAutoMapperIntegration.Web\BarebonesAutoMapperIntegration.Web.csproj" />
     </ItemGroup>
 
