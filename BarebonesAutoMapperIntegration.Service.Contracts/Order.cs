@@ -2,7 +2,7 @@
 
 namespace BarebonesAutoMapperIntegration.Service.Contracts
 {
-    public class Order
+    public class Order : DTOBase
     {
         public int Id { get; set; }
         
@@ -11,5 +11,8 @@ namespace BarebonesAutoMapperIntegration.Service.Contracts
         public ICollection<OrderItem> OrderItems { get; set; }
 
         public int Count => OrderItems.Count;
+        
+        // Used to demonstrate ignored mappings, refer to OrderMappingProfile.cs
+        public string Unused { get; set; }
     }
 }

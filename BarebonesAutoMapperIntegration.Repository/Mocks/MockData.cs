@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using BarebonesAutoMapperIntegration.Repository.Entities;
 
@@ -14,7 +15,8 @@ namespace BarebonesAutoMapperIntegration.Repository.Mocks
                     Id = 1,
                     AuthorFirstName = "Jane",
                     AuthorSurname = "Doe",
-                    OrderItems = new List<OrderItemEntity>()
+                    OrderItems = new List<OrderItemEntity>(),
+                    UpdatedAt = DateTime.Now
                 },
                 new OrderEntity
                 {
@@ -26,12 +28,14 @@ namespace BarebonesAutoMapperIntegration.Repository.Mocks
                         new OrderItemEntity
                         {
                             Id = 1,
-                            Name = "Corn"
+                            Name = "Corn",
+                            UpdatedAt = DateTime.Now
                         },
                         new OrderItemEntity
                         {
                             Id = 2,
-                            Name = "Flour"
+                            Name = "Flour",
+                            UpdatedAt = DateTime.Now
                         },
                     }
                 },

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace BarebonesAutoMapperIntegration.Repository.Entities
 {
-    public class OrderEntity
+    public class OrderEntity : EntityBase
     {
         public int Id { get; set; }
 

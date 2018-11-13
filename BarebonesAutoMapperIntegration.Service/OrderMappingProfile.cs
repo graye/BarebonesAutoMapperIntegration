@@ -12,8 +12,17 @@ namespace BarebonesAutoMapperIntegration.Service
     {
         public OrderMappingProfile()
         {
-            CreateMap<OrderEntity, Order>().ForMember(dest => dest.Author,
-                opt => opt.MapFrom(source => $"{source.AuthorFirstName} {source.AuthorSurname}"));
+            // Mapping base class properties
+            CreateMap<EntityBase, DTOBase>()
+                .Include<OrderEntity, Order>()
+                .Include<OrderItemEntity, OrderItem>();
+            
+            CreateMap<OrderEntity, Order>()
+                .ForMember(dest => dest.Author,
+                opt => opt.MapFrom(source => $"{source.AuthorFirstName} {source.AuthorSurname}"))
+                .ForMember(dest => dest.Unused, opt => opt.Ignore()); 
+                // Must explicitly ignore unmapped destination properties
+                // otherwise AssertConfigurationIsValid() will fail
 
             CreateMap<OrderItemEntity, OrderItem>();
         }

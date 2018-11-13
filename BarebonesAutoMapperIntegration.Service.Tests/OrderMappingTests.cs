@@ -15,6 +15,32 @@ namespace BarebonesAutoMapperIntegration.Service.Tests
         private static IConfigurationProvider MapperConfig { get; } = Service.MapperConfig.Default;
 
         private static IMapper GetMapper() => MapperConfig.CreateMapper();
+
+        [Fact]
+        public void Mapper_IncludesOrderBaseProperties()
+        {
+            var mockEntity = new OrderEntity
+            {
+                UpdatedAt = new DateTime(2011, 12, 10, 3, 2, 1)
+            };
+
+            var mockDto = GetMapper().Map<Order>(mockEntity);
+            
+            Assert.Equal(mockEntity.UpdatedAt, mockDto.UpdatedAt);
+        }
+        
+        [Fact]
+        public void Mapper_IncludesOrderItemBaseProperties()
+        {
+            var mockEntity = new OrderItemEntity
+            {
+                UpdatedAt = new DateTime(2011, 12, 10, 3, 2, 1)
+            };
+
+            var mockDto = GetMapper().Map<OrderItem>(mockEntity);
+            
+            Assert.Equal(mockEntity.UpdatedAt, mockDto.UpdatedAt);
+        }
         
         [Fact]
         public void Mapper_IncludesOrder()
@@ -23,13 +49,26 @@ namespace BarebonesAutoMapperIntegration.Service.Tests
             {
                 Id = 3,
                 AuthorFirstName = "Gail",
-                AuthorSurname = "Wallingo"
+                AuthorSurname = "Wallingo",
+                OrderItems = new List<OrderItemEntity>
+                {
+                    new OrderItemEntity
+                    {
+                        Id = 2,
+                        Name = "Soy"
+                    }
+                }
             };
 
             var apiModel = GetMapper().Map<Order>(entity);
 
             Assert.Equal(entity.Id, apiModel.Id);
             Assert.Equal($"{entity.AuthorFirstName} {entity.AuthorSurname}", apiModel.Author);
+            
+            // Automapper will map inner properties too
+            Assert.Equal(entity.OrderItems.Count, apiModel.OrderItems.Count);
+            Assert.Equal(entity.OrderItems.ElementAt(0).Id, apiModel.OrderItems.ElementAt(0).Id);
+            Assert.Equal(entity.OrderItems.ElementAt(0).Name, apiModel.OrderItems.ElementAt(0).Name);
         }
 
         [Fact]

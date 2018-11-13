@@ -1,6 +1,6 @@
 namespace BarebonesAutoMapperIntegration.Service.Contracts
 {
-    public class OrderItem
+    public class OrderItem : DTOBase
     {
         public int Id { get; set; }
         
